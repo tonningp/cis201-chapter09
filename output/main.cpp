@@ -1,23 +1,26 @@
 #include<iostream>
+#include<cstdlib>
+#include<ctime>
 #include<string>
 #include<fstream>
 
+int get_random(int scale)
+{
+    return rand() % scale + 1;
+}
 int main()
 {
-    std::ifstream input;
+    srand(time(0));
     std::ofstream output;
-    input.open("data.txt");
-    if( !input.fail())
+    output.open("data.txt");
+    if( !output.fail())
     {
-        for(;;)
+        for(int i=0;i < 20;i++)
         {
-            char c;
-            input.get(c);
-            if(input.eof())
-                break;
-            output.put(c);
+            output << get_random(300) << std::endl;
         }
     }
+    output.close();
 
     return 0;
 }

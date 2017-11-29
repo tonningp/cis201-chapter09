@@ -5,20 +5,27 @@
 int main()
 {
     std::ifstream input;
-
-    input.open("data.txt");
-    if( !input.fail())
+    std::string filename;
+    std::cout << "Enter the filename: ";
+    std::getline(std::cin,filename);
+    input.open(filename.c_str());
+    if( input.is_open())
     {
-        int line = 1;
+        int count = 0;
         while(1)
         {
+            char c;
             std::string buffer;
-            std::getline(input,buffer);
+            input.get(c);
             if(input.eof())
                 break;
-            std::cout << line << " : " << buffer << std::endl;
-            line++;
+            std::cout << c;
+            count++;
         }
+    }
+    else
+    {
+        std::cout << "File is not open for reading" << std::endl;
     }
 
     return 0;
