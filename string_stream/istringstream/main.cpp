@@ -1,15 +1,23 @@
 #include<iostream>
+#include<string>
+#include<fstream>
 #include<sstream>
 
 
 int main()
 {
-    std::istringstream istring("1 2 3 4 5 6 7 8");
-    int value;
-    while( istring >> value)
-    {
-       std::cout << value << std::endl;
-    }
-
+//    std::ifstream ifs("data.txt");
+//    std::string buffer;
+//    std::getline(ifs,buffer);
+//
+    std::istringstream istring("this is a sentence.\n24.5 26.2 1 2 3");
+    std::string sentence;
+    std::getline(istring,sentence);
+    std::cout << sentence << std::endl;
+    double value;
+    istring >> value;
+    std::cout << value << std::endl;
+    istring >> value;
+    std::cout << value << std::endl;
     return 0; 
 }

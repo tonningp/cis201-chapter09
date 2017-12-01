@@ -15,7 +15,8 @@ int main()
         while(1)
         {
             char c;
-            std::string buffer;
+            int number;
+
             input.get(c);
             if(input.eof())
                 break;
